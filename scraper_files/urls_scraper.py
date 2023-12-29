@@ -14,17 +14,17 @@ failed_pages = []
 
 def main():
     
-    user_agent = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
+    # user_agent = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
 
-    chrome_options = Options()
+    # chrome_options = Options()
 
-    chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--headless")
 
-    chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--no-sandbox")
 
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
 
-    chrome_options.add_argument(f"--user-agent={user_agent}")
+    # chrome_options.add_argument(f"--user-agent={user_agent}")
 
     driver = webdriver.Chrome()
 
@@ -53,7 +53,7 @@ def main():
 
         if not len(titles_with_urls):
             print("Failed")
-            failed_pages.append(page_number)
+            failed_pages.append({"page_number": page_number})
             failed = pd.DataFrame(data=failed_pages, columns=['page_number'])
             failed.to_csv("csv_files/failed_page_numbers.csv", index=False)
             continue
@@ -64,11 +64,15 @@ def main():
 
 
         print("\n\n--------------------------------------------------")
+
         print(f"For Page: {page_number}>>>>>>>>>>>>>>>>>>>>>>>>>")
+
         # print(titles_with_urls)
 
         urls = [{'urls': item.get_attribute('href')} for item in titles_with_urls]
+
         paper_urls.extend(url for url in urls)
+
         # print(paper_urls)
         #print(urls)
         # paper_urls.append(item for item in urls)
@@ -94,17 +98,7 @@ def main():
 
         df = pd.DataFrame(data=paper_urls, columns=columns)
         df.to_csv("csv_files/paper_urls.csv", index=False)
-
-        # time.sleep()
-
-        # title =  titles_with_urls[0].get_attribute("href")
-
-        # urls = [item.get_atti]
         
-        # print(title)
-
-        # urls = 
-
     driver.close()
 
 if __name__ == "__main__":
