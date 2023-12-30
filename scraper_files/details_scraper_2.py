@@ -11,7 +11,7 @@ columns = ['abstracts', 'ieee_keywords', 'author_keywords']
 
 
 def main():
-    df = pd.read_csv("csv_files/paper_urls.csv")
+    df = pd.read_csv("csv_files/paper_urls_ieee_access.csv")
     
     urls = df['urls'].to_list()
 
@@ -24,7 +24,7 @@ def main():
         driver.get(url=url)
         # time.sleep(5)
 
-        print(f"{url}                >>>>>>>>>>>>>>>>>>>")
+        print(f"\n{url}                >>>>>>>>>>>>>>>>>>>")
 
         try:
             # show_more_button = driver.find_element(by=By.CLASS_NAME, value="abstract-text-view-all document-abstract-toggle-btn")
@@ -78,7 +78,7 @@ def main():
         })
 
         df = pd.DataFrame(columns=columns, data=paper_details)
-        df.to_csv("csv_files/paper_details.csv", index=False)
+        df.to_csv("csv_files/paper_details_ieee_access.csv", index=False)
 
 if __name__ == "__main__":
     main()
