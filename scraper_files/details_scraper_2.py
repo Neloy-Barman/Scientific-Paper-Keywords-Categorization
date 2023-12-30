@@ -4,6 +4,7 @@ import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.common import exceptions
 
 paper_details = []
 
@@ -17,11 +18,14 @@ def main():
 
     driver = webdriver.Chrome()
 
-    for index in tqdm(range(len(urls))):
+    for index in tqdm(range(8358,len(urls))):
         
         url = urls[index]
 
-        driver.get(url=url)
+        try:
+            driver.get(url=url)
+        except exceptions.TimeoutException as e:
+            continue
         # time.sleep(5)
 
         print(f"\n{url}                >>>>>>>>>>>>>>>>>>>")
@@ -40,11 +44,14 @@ def main():
             abstract = ""
             print("Abstract Not Found!!")
 
-        buttons = driver.find_elements(by=By.XPATH, value="//button[@class='accordion-link text-base-md-lh']")
+        # buttons = driver.find_elements(by=By.XPATH, value="//button[@class='accordion-link text-base-md-lh']")
+        
+        button = driver.find_element(by=By.XPATH, value="//button[@id='keywords']")
+
 
         try:
             print("Button Clicked.")
-            buttons[4].click()
+            button.click()
             
             keywords = driver.find_elements(by=By.XPATH, value="//ul[@class='u-mt-1 u-p-0 List--no-style List--inline']")
 
@@ -78,7 +85,7 @@ def main():
         })
 
         df = pd.DataFrame(columns=columns, data=paper_details)
-        df.to_csv("csv_files/paper_details_ieee_access.csv", index=False)
+        df.to_csv("csv_files/paper_details_ieee_access_2.csv", index=False)
 
 if __name__ == "__main__":
     main()
