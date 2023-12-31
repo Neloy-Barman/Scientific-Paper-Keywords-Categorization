@@ -19,7 +19,7 @@ def main():
 
     driver = webdriver.Chrome()
 
-    for index in tqdm(range(4081,len(urls))):
+    for index in tqdm(range(13018,len(urls))):
         
         url = urls[index]
 
