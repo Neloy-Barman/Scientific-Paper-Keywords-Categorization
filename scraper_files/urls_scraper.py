@@ -84,11 +84,6 @@ def main():
             "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?sortType=paper-citations&highlight=true&matchPubs=true&returnType=SEARCH&openAccess=true&rowsPerPage=100&returnFacets=ALL&refinements=PublicationTitle:SAIEE%20Africa%20Research%20Journal&returnFacets=ALL&",
             "total": 713 
         },
-          {
-            "type": "IEEE Open Journal of the Communications Society",
-            "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?sortType=paper-citations&highlight=true&matchPubs=true&returnType=SEARCH&openAccess=true&rowsPerPage=100&returnFacets=ALL&refinements=PublicationTitle:IEEE%20Open%20Journal%20of%20the%20Communications%20&SocietyreturnFacets=ALL&",
-            "total": 654
-        },
     ]
 
 
