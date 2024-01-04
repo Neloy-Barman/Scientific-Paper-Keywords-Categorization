@@ -12,9 +12,9 @@ def index():
         outputs = categorize_keywords(input_text=input_text)
         print(outputs)
         output_text = "HELLO WORLD THIS IS THE WORLD"
-        return render_template("classifier.html", input_text = input_text, output_text = output_text)
+        return render_template("index.html", input_text = input_text, output_text = output_text)
     else:
-        render_template("index.html")
+        return render_template("classifier.html")
     # print(output)
         
 def categorize_keywords(input_text):
@@ -31,13 +31,3 @@ def categorize_keywords(input_text):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# def main():
-#     input_text = "https://nelbarman053-multilabel-book-genre-classifier-2.hf.space/run/predict"
-
-#     keywords = categorize_keywords(input_text=input_text)
-
-#     print(keywords)
-
-if __name__ == "__main__":
-    main()

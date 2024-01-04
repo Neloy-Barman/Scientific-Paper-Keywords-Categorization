@@ -20,9 +20,9 @@
             </div>
             <div>
                 <h1>Enter Abstract</h1>
-                <form>
-                    <textarea></textarea><br />
-                    <button>Generate Keywords</button>
+                <form action="/" method="post">
+                    <textarea type="text" id="text" name="text"></textarea><br />
+                    <button type="submit" value="submit">Generate Keywords</button>
                 </form>
             </div>
         </div>
@@ -39,7 +39,7 @@
             // onComplete: function () {
             //     $(".typed-cursor").hide();
             // },
-            // loop: true
+            loop: false
         });
         var typed1 = new Typed("#element1", {
             strings: [
@@ -47,8 +47,8 @@
             ],
             showCursor: false,
             typeSpeed: 30,
-            backSpeed: 20,
-            loop: true,
+            // backSpeed: 20,
+            loop: false,
         });
     </script>
 </body>
