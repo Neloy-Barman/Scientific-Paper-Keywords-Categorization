@@ -1,7 +1,26 @@
-# Keyword Generation
+<h1>Scientific Paper Keyword Categorization</h1>
+
+<h2>Project Development Journal</h2>
+
+<h3><code style="color:blue">Problem Statement</code></h3>
+
+<h3><code style="color:blue">Objective</code></h3>
+
+<h3><code style="color:blue">Data Collection</code></h3>
+
+<h3><code style="color:blue">Data Pre-processing</code></h3>
+
+<h3><code style="color:blue">Model Experimentations</code></h3>
+
+<h3><code style="color:blue">Model Evaluation</code></h3>
+
+<h3><code style="color:blue">Model Compression</code></h3>
+
+<h3><code style="color:blue">Deployment</code></h3>
+
+<h3><code style="color:blue">Integration to website</code></h3>
 
 <h3><code style="color:blue">Challenges Faced</code></h3>
-
 <ul>
     <li>
         <strong>After a scraper script runs for a long time, sometimes it shows "Aw, Snap!" message in the running chrome. In that case, I just reloaded the webpage mannually and then it started working properly as previous.</strong><br/>
