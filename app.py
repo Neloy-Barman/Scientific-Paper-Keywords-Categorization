@@ -8,13 +8,19 @@ app = Flask(__name__)
 @app.route("/", methods = ['GET', 'POST'])
 def index():
     if request.method == "POST":
-        input_text = "Hello World"
+        # input_text = """
+        #                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde in reiciendis, inventore dolores dicta
+        #                 repellendus cumque quas doloremque ea corporis qui ab, maiores perspiciatis quod facilis, cum
+        #                 deleniti debitis iusto.
+        #             """
+        input_text = "Hello World!!"
         outputs = categorize_keywords(input_text=input_text)
         print(outputs)
-        output_text = "HELLO WORLD THIS IS THE WORLD"
-        return render_template("index.html", input_text = input_text, output_text = output_text)
+        # output_text = "HELLO WORLD THIS IS THE WORLD"
+        output_text = outputs
+        return render_template("classifier.html", input_text = input_text, output_text = output_text)
     else:
-        return render_template("classifier.html")
+        return render_template("index.html")
     # print(output)
         
 def categorize_keywords(input_text):

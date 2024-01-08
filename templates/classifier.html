@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keyword Categorizer</title>
-    <link rel="stylesheet" href="css_files/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
 </head>
 
 <body>
@@ -13,9 +14,10 @@
             <div>
                 <h1>Your Abstract</h1>
                 <!-- <label>{{input_text}}</label> -->
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde in reiciendis, inventore dolores dicta
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde in reiciendis, inventore dolores dicta
                     repellendus cumque quas doloremque ea corporis qui ab, maiores perspiciatis quod facilis, cum
-                    deleniti debitis iusto.</p>
+                    deleniti debitis iusto.</p> -->
+                <p class="abstract_text">{{input_text}}</p>
             </div>
             <div>
                 <h1>Suggested Keywords</h1>
@@ -24,6 +26,7 @@
                     <span id="element1"></span>
                 </ul>
             </div>
+            <button onclick="history.go(-1)" class="btn btn-primary">Go Back</button>
         </div>
         <span id="element"></span>
     </div>
@@ -31,7 +34,9 @@
     <script>
         var typed1 = new Typed("#element1", {
             strings: [
-                "<li class='keywords'>Artificial Intelligence</li> <li class='keywords'>Transformer models</li> <li class='keywords'>Deep Learning</li> <li class='keywords'>CNN</li>",
+                // "<li class='keywords'>{{ output_text }}</li>",
+                // "if(output_text.length < 0){<p>No availalble keywords</p>} else{<p>Hello World</p>}"
+                "{% for word in output_text %} <li class='keywords'>{{ word }}</li> {% endfor %}"
             ],
             showCursor: false,
             typeSpeed: 30,
@@ -42,3 +47,5 @@
 </body>
 
 </html>
+
+<!-- {% for word in output_text %} <li class='keywords'>{{ word }}</li> {% endfor %} -->

@@ -32,7 +32,7 @@
 }
 
 .abstract_text{
-    font-size: xx-large;
+    font-size: large;
     font-weight: bolder;
     padding: 20px;
 }
@@ -48,6 +48,19 @@
     background-color: #000;
     border-radius: 20px;
     color: #fff;
-    font-size: x-large;
+    font-size: 20px;
     font-weight: 500;
+}
+
+.input{
+    resize: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+.btn-primary{
+    /* margin: 10px; */
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
 }
