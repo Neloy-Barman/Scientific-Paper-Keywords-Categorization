@@ -1,4 +1,4 @@
-<h1>Scientific Paper Keyword Categorization</h1>
+<h1>Scientific Paper Keywords Categorization</h1>
 
 <h2>Project Development Journal</h2>
 
