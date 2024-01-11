@@ -3,8 +3,10 @@
 <h2>Project Development Journal</h2>
 
 <h3><code style="color:blue">Problem Statement</code></h3>
+<strong></strong>
 
 <h3><code style="color:blue">Objective</code></h3>
+<strong>Keywords is a necessary part of a scientific paper. It helps search engines to show papers to users based on relatable topics. So, choosing these words properly is really important. The goal here now is to create a developed and optimized keyword categorizer that can classify a scientific paper between particular keywords based on the abstrat of the paper. </strong>
 
 <h3><code style="color:blue">Data Collection</code></h3>
 
