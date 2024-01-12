@@ -35,34 +35,34 @@
     </div>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script type="text/javascript">
-        var output_text = "{{output_text}}" ;
+        var output_text = "{{output_text}}";
         console.log(output_text);
-        console.log( typeof output_text);
-        if (typeof output_text == 'string'){
-            console.log("Hello");
-            var typed1 = new Typed("#element1", {
-            strings: [
-                // "<li class='keywords'>{{ output_text }}</li>",
-                // "if(output_text.length < 0){<p>No availalble keywords</p>} else{<p>Hello World</p>}"
-                "<p class='abstract_text'>No Relatable Keywords Found !!😑😑</p>"
-            ],
-            showCursor: false,
-            typeSpeed: 30,
-            loop: false,
-        });
-        }
-        else{
+        console.log(typeof output_text);
+        if (output_text.includes("[") && output_text.includes("]")) {
             console.log("No hello");
             var typed1 = new Typed("#element1", {
-            strings: [
-                // "<li class='keywords'>{{ output_text }}</li>",
-                // "if(output_text.length < 0){<p>No availalble keywords</p>} else{<p>Hello World</p>}"
-                "{% for word in output_text %} <li class='keywords'>{{ word }}</li> {% endfor %}"
-            ],
-            showCursor: false,
-            typeSpeed: 30,
-            loop: false,
-        });
+                strings: [
+                    // "<li class='keywords'>{{ output_text }}</li>",
+                    // "if(output_text.length < 0){<p>No availalble keywords</p>} else{<p>Hello World</p>}"
+                    "{% for word in output_text %} <li class='keywords'>{{ word }}</li> {% endfor %}"
+                ],
+                showCursor: false,
+                typeSpeed: 30,
+                loop: false,
+            });
+        }
+        else {
+            console.log("Hello");
+            var typed1 = new Typed("#element1", {
+                strings: [
+                    // "<li class='keywords'>{{ output_text }}</li>",
+                    // "if(output_text.length < 0){<p>No availalble keywords</p>} else{<p>Hello World</p>}"
+                    "<p class='abstract_text'>No Relatable Keywords Found !!😑😑</p>"
+                ],
+                showCursor: false,
+                typeSpeed: 30,
+                loop: false,
+            });
         } 
     </script>
 
