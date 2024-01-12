@@ -9,6 +9,8 @@
 <strong>Keywords is a necessary part of a scientific paper. It helps search engines to show papers to users based on relatable topics. So, choosing these words properly is really important. The goal here now is to create a developed and optimized keyword categorizer that can classify a scientific paper between particular keywords based on the abstrat of the paper. </strong>
 
 <h3><code style="color:blue">Data Collection</code></h3>
+<strong> I collected data for the open access papers. IEEE doesn't provide more than    
+    To execute the collection process, I firstly created scrapers using selenium after inspecting the website. It doesn't provide  As I needed the abstract and the available keywords for that paper (including both IEEE and author), . </strong>
 
 <h3><code style="color:blue">Data Pre-processing</code></h3>
 
