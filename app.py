@@ -20,11 +20,13 @@ def index():
         
         outputs = categorize_keywords(input_text=input_text)
         
-        print(outputs)
+        # print(outputs)
         
         # output_text = "HELLO WORLD THIS IS THE WORLD"
         
         output_text = outputs
+
+        # print(f"This is the output: {type(output_text)}")
         
         return render_template("classifier.html", input_text = input_text, output_text = output_text)
     else:
@@ -53,16 +55,18 @@ def categorize_keywords(input_text):
 
     response_data = response['confidences']
 
-    # print(response_data)
+    print(response_data)
     
     keywords = [data['label'] for data in response_data if data['confidence'] >= 0.5]
 
-    # print(f"This is the keywords: {keywords}")
-    
-    if not len(keywords):
-        return "No relatable keywords found!!"
-    else:
-        return keywords
+    print(f"This is the keywords: {keywords}")
+
+    return keywords
+
+    # if keywords == [] :
+    #     return "No relatable keywords found!!"
+    # else:
+    #     return keywords
 
 if __name__ == "__main__":
     app.run(debug=True)
