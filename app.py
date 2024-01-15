@@ -44,7 +44,7 @@ def categorize_keywords(input_text):
     # keywords = [data['label'] for data in response_data if data['confidence'] >= 0.5]
 
     # return keywords
-    client = Client("https://nelbarman053-scientific-paper-keyword-categorization.hf.space/--replicas/mq5cq/")
+    client = Client("https://nelbarman053-scientific-paper-keyword-categorization.hf.space/--replicas/2zaem/")
 
     response = client.predict(
 		input_text,	# str  in 'abstract' Textbox component
