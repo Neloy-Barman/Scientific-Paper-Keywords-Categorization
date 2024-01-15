@@ -17,6 +17,50 @@
 <h3><code style="color:blue">Model Experimentations</code></h3>
 
 <h3><code style="color:blue">Model Evaluation</code></h3>
+<div align="center">
+    <table>
+        <tr>
+            <th rowspan="2">Model</th>
+            <th colspan="3">Micro Average</th>
+            <th colspan="3">Weighted Average</th>
+        </tr>
+        <tr>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1-Score</th> 
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1-Score</th> 
+        </tr>
+        <tr align="center">
+            <th>BERT</th>
+            <td>62.211</td>
+            <td>45.104</td>
+            <td>52.294</td>
+            <td>60.635</td>
+            <td>45.104</td>
+            <td>50.618</td>
+        </tr>
+        <tr align="center">
+            <th>DistilBERT</th>
+            <td>65.810</td>
+            <td>40.588</td>
+            <td>50.209</td>
+            <td>63.739</td>
+            <td>40.588</td>
+            <td>48.119</td>
+        </tr>
+         <tr align="center">
+            <th>RoBERTa</th>
+            <td>67.525</td>
+            <td>31.922</td>
+            <td>43.351</td>
+            <td>51.435</td>
+            <td>31.504</td>
+            <td>36.483</td>
+        </tr>
+    </table>
+</div>
 
 <h3><code style="color:blue">Model Compression</code></h3>
 
