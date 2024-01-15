@@ -21,14 +21,31 @@
 <h3><code style="color:blue">Model Compression</code></h3>
 
 <h3><code style="color:blue">Deployment</code></h3>
+<div align="center">
+    <img src="readmeFileImages/deployment.png">
+</div>
 
 <h3><code style="color:blue">Integration to website</code></h3>
+<strong>I integrated the model <a href="https://render.com/">render</a>. Check out the live website <a href="https://scientific-paper-keywords-categorization.onrender.com/">here</a>.</strong><br/>
+
+<div align="center">
+    <table>
+        <tr>
+            <th>Home Page</th>
+            <th>Prediction Result</th>
+        </tr>
+         <tr>
+            <td><img src="readmeFileImages/1st_page.png" height="300"></td>
+            <td><img src="readmeFileImages/2nd_page.png" height="300"></td>
+        </tr>
+    </table>
+</div>
 
 <h3><code style="color:blue">Challenges Faced</code></h3>
 <ul>
     <li>
         <strong>After a scraper script runs for a long time, sometimes it shows "Aw, Snap!" message in the running chrome. In that case, I just reloaded the webpage mannually and then it started working properly as previous.</strong><br/>
-        <img src="assets/images/aw_snap.png" width="300" height="150"><br/>
+        <img src="readmeFileImages/aw_snap.png" width="300" height="150"><br/>
     </li>
     <li><strong>The required webelements distribution in all webpages wasn't the same. For some webpages, the scraper collecting details were working fine but it showed exceptions for those. So, I had to re-write some codes considering the different ones and generalize the codes.</strong></li>
     <li><strong>As I had to collect a lot of data, so, I created same type of scrapers and running them simultaneously from different indexes. It boosted my data collection process a bit although it depended much on internet speed.</strong></li>
