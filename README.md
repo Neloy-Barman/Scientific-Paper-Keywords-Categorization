@@ -3,18 +3,54 @@
 <h2>Project Development Journal</h2>
 
 <h3><code style="color:blue">Problem Statement</code></h3>
-<strong>Collecting paper data, I will categorize keywords.</strong>
+<strong>Fetching papers abstract and keywords, I will create a multi-label keywords classifier that can classify an abstract within selected keywords.</strong>
 
 <h3><code style="color:blue">Objective</code></h3>
-<strong>Keywords is a necessary part of a scientific paper. It helps search engines to show papers to users based on relatable topics. So, choosing these words properly is really important. The goal here now is to create a developed and optimized keyword categorizer that can classify a scientific paper between particular keywords based on the abstrat of the paper. </strong>
+<strong>Keywords is a necessary part of a scientific paper. It helps the search engines to show papers to their users based on relatable topics. So, choosing these words properly is really important. The goal here now is to create a developed and optimized keyword categorizer that can classify a scientific paper between particular keywords based on the abstract of the paper.</strong>
 
 <h3><code style="color:blue">Data Collection</code></h3>
-<strong> I collected data for the open access papers. IEEE doesn't provide more than    
-    To execute the collection process, I firstly created scrapers using selenium after inspecting the website. It doesn't provide  As I needed the abstract and the available keywords for that paper (including both IEEE and author), . </strong>
+<strong>To collect data, I decided to scrape the available open access papers at <a href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE</a>. I created the scraper files using selenium after inspecting the website. Firstly I collected the urls of the papers using "url_scraper". Then visiting the urls, I fetched the abstract and the IEEE and author keywords using "details_scraper". Facing some unpredictable issues, I managed to scrape data and stored them in different .csv files. You can check out the scraper files within "scrapers" folder.</strong>
 
-<h3><code style="color:blue">Data Pre-processing</code></h3>
+<h3><code style="color:blue">Data Cleaning & Pre-processing</code></h3>
+<strong>Within almost all the columns, there were some NaN or redundant values. In the case of "abstracts" column, some values were repetative and those are considered as the inappropriate ones. So, those rows were deleted. Then I merged the IEEE and author keywords together. From there, I took the most commonly used keywords on the basis of the threshold value of 0.003. Henceafter, I dropped the rows having NaN or the rare keywords and created the final dataset. You can check the data cleaning part in the "data_cleaning" notebook. The following table shows the overview of initial and afterwards csv files.</strong>
+<table align="center">
+    <tr align="center">
+        <th>File Name</th>
+        <th>Data Type</th>
+        <th>Rows</th>
+        <th>Columns</th>
+    </tr>
+    <tr align="center">
+        <td>merged_data</td>
+        <td>Tabular Text</td>
+        <td>40457</td>
+        <td>3</td>
+    </tr>
+    <tr align="center">
+        <td>papers_final_data</td>
+        <td>Tabular Text</td>
+        <td>36398</td>
+        <td>2</td>
+    </tr>
+</table>
+
+<h3><code style="color:blue">Dataloader Creation</code></h3>
+<strong>I encoded the unique keywords. Then I proceed to the rowwise indexing for the available keywords of that row. For different models, the pre-processing part may differ. So, I imported the pre-defined configurations for each model. I splitted the dataset as 90% training and 10% validation set. Finally I created different dataloaders with a batch size of 16. You can check the data loader creation part in the "dataloader_creation" notebook.</strong>
 
 <h3><code style="color:blue">Model Experimentations</code></h3>
+<strong>To classify an abstract into multi-labels, I choose BERT and it's 2 variants. Those are: - </strong>
+<ul>
+<li>BERT</li>
+<li>DistilBERT</li>
+<li>RoBERTa</li>
+</ul>
+<strong>Training process: - </strong>
+<ol>
+<li>I freezed the model with it's pre-trained weights and ranged the learning rate between suitable values.</li>
+<li>Then I trained the model for 10 epochs using fit_one_cycle() method.</li>
+<li>After that, I unfreezed the trained model and again selecting a learning rate range, trained the model for 10 epochs.</li>
+</ol>
+<strong>In the case of BERT and DistilBERT, the whole training process gave a satisfactory result. But for RoBERTa, after unfreezing and training it again cost overfitting problem. So, it shows a better performance in its freezing phase.</strong>
 
 <h3><code style="color:blue">Model Evaluation</code></h3>
 <div align="center">
@@ -52,12 +88,12 @@
         </tr>
          <tr align="center">
             <th>RoBERTa</th>
-            <td>67.525</td>
-            <td>31.922</td>
-            <td>43.351</td>
-            <td>51.435</td>
-            <td>31.504</td>
-            <td>36.483</td>
+            <td>69.113</td>
+            <td>20.353</td>
+            <td>31.446</td>
+            <td>59.215</td>
+            <td>20.353</td>
+            <td>24.646</td>
         </tr>
     </table>
 </div>
