@@ -13,13 +13,14 @@ columns = ['abstracts', 'ieee_keywords', 'author_keywords']
 
 
 def main():
-    df = pd.read_csv("csv_files/paper_urls_2.csv")
+    df = pd.read_csv("csv_files/paper_urls_more.csv")
+
     
     urls = df['urls'].to_list()
 
     driver = webdriver.Chrome()
 
-    for index in tqdm(range(1982,len(urls))):
+    for index in tqdm(range(0,len(urls))):
         
         url = urls[index]
 
@@ -111,7 +112,8 @@ def main():
         })
 
         df = pd.DataFrame(columns=columns, data=paper_details)
-        df.to_csv("csv_files/paper_details_more_2.csv", index=False)
+        df.to_csv("csv_files/paper_details_more.csv", index=False)
+
 
 if __name__ == "__main__":
     main()

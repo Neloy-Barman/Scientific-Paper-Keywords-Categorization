@@ -1,0 +1,2 @@
+<h1>DataLoader</h1>
+<strong>For different models different dataloaders were used. Those loaders are big in size. That's why I'm giving only the link of BERT model's loader. Check it out <a href="https://drive.google.com/file/d/1CbdXrSaZIwqQoMskb2ujFnTcKmDnYsW5/view?usp=sharing">here</a>.</strong>

@@ -1,0 +1,2 @@
+<h1>Model</h1>
+<strong>The models I exported were larger in size. In fact, I reduced the size of the best performing model BERT using ONNX. Check out the compressed BERT <a href="https://drive.google.com/file/d/1jCh7p2E7cizee1PEmvKsV-_HrswzHGWO/view?usp=sharing">here</a>.</strong>
