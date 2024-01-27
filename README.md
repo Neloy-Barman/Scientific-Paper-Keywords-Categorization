@@ -99,11 +99,29 @@
 </div>
 
 <h3><code style="color:blue">Model Compression</code></h3>
-
+<strong>I compressed the model using ONNX. The model size got reduced to 87.45%. But the reduction costs a performance drop in the prediction. To evaluate this, I used micro average f1-score as the performance metrics. The 2.8%</strong>
+<div align="center">
+    <table>
+        <tr align="center">
+            <th>Model</th>
+            <th>Size(MB)</th>
+            <th>Performance</th>
+        </tr>
+        <tr align="center">
+            <td>BERT</td>
+            <td>838.8</td>
+            <th>52.2939</th>
+        </tr>
+        <tr align="center">
+            <td>Compressed BERT</td>
+            <td>105.3</td>
+            <th>50.8322</th>
+        </tr>
+    </table>
+</div>
 <h3><code style="color:blue">Deployment</code></h3>
 <div align="center">
     <img src="readmeFileImages/deployment.png">
-</div>
 
 <h3><code style="color:blue">Integration to website</code></h3>
 <strong>I integrated the model <a href="https://render.com/">render</a>. Check out the live website <a href="https://scientific-paper-keywords-categorization.onrender.com/">here</a>.</strong><br/>
