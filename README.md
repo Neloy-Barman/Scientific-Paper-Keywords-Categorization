@@ -12,7 +12,7 @@
 <strong>To collect data, I decided to scrape the available open access papers at <a href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE</a>. I created the scraper files using selenium after inspecting the website. Firstly I collected the urls of the papers using "url_scraper". Then visiting the urls, I fetched the abstract and the IEEE and author keywords using "details_scraper". Facing some unpredictable issues, I managed to scrape data and stored them in different .csv files. You can check out the scraper files within "scrapers" folder.</strong>
 
 <h3><code style="color:blue">Data Cleaning & Pre-processing</code></h3>
-<strong>Within almost all the columns, there were some NaN or redundant values. In the case of "abstracts" column, some values were repetative and those are considered as the inappropriate ones. So, those rows were deleted. Then I merged the IEEE and author keywords together. From there, I took the most commonly used keywords on the basis of the threshold value of 0.003. Henceafter, I dropped the rows having NaN or the rare keywords and created the final dataset. You can check the data cleaning part in the "data_cleaning" notebook. The following table shows the overview of initial and afterwards csv files.</strong>
+<strong>Within almost all the columns, there were some NaN or redundant values. In the case of "abstracts" column, some values were repetative and irrelavant. Those are considered as the inappropriate ones. So, those rows were deleted. Then I merged the IEEE and author keywords together. From there, I took the most commonly used keywords on the basis of the threshold value of 0.003. Henceafter, I dropped the rows having NaN or the rare keywords and created the final dataset. You can check the data cleaning part in the "data_cleaning" notebook. The following table shows the overview of initial and final csv files. The final dataset is available <a href="https://www.kaggle.com/datasets/neloybarman018/ieee-papers-abstract-and-keywords">here</a>.</strong>
 <table align="center">
     <tr align="center">
         <th>File Name</th>
@@ -35,7 +35,7 @@
 </table>
 
 <h3><code style="color:blue">Dataloader Creation</code></h3>
-<strong>I encoded the unique keywords. Then I proceed to the rowwise indexing for the available keywords of that row. For different models, the pre-processing part may differ. So, I imported the pre-defined configurations for each model. I splitted the dataset as 90% training and 10% validation set. Finally I created different dataloaders with a batch size of 16. You can check the data loader creation part in the "dataloader_creation" notebook.</strong>
+<strong>I encoded the unique keywords. Then I proceed to the row-wise indexing for the available keywords of that row. For different models, the pre-processing part may differ. So, I imported the pre-defined configurations for each model. I splitted the dataset as 90% training and 10% validation set. Finally I created different dataloaders with a batch size of 16. You can check the data loader creation part in the "dataloader_creation" notebook.</strong>
 
 <h3><code style="color:blue">Model Experimentations</code></h3>
 <strong>To classify an abstract into multi-labels, I choose BERT and it's 2 variants. Those are: - </strong>
@@ -97,9 +97,11 @@
         </tr>
     </table>
 </div>
+<strong>If we look at the evaluation table, it is clear that all our model is showing high precision and low recall values in all the cases. That's why a drastic change can be seen in the f1-score values. Although we got high precision values, but it is not showing a satisfactory results that meets expectation. In the case of BERT and DistilBERT, the models are not predicting all the expected classes but the predictions are selective and precise. That's why we see higher precision values. But it's not predicitng more extra classes 
+that results in lower recall values. On the contrary, RoBERTa is more precise and correct. Though, it's predicting less extra classes. Finally, our balancing metric f1-score comes and it shows BERT as one of the best among these. Furthermore, I choose it to move forward with other tasks.</strong>
 
 <h3><code style="color:blue">Model Compression</code></h3>
-<strong>I compressed the model using ONNX. The model size got reduced to 87.45%. But the reduction costs a performance drop in the prediction. To evaluate this, I used micro average f1-score as the performance metrics. The 2.8%</strong>
+<strong>I compressed the model using ONNX. The model size got reduced to 87.45%. But the reduction costs a performance drop in the prediction. To evaluate this, I used micro average f1-score as the performance metrics. There is a 2.8% drop in the performance of the compressed model. </strong>
 <div align="center">
     <table>
         <tr align="center">
@@ -120,11 +122,13 @@
     </table>
 </div>
 <h3><code style="color:blue">Deployment</code></h3>
+<strong>I deployed the model using huggingface. Check out the deployment <a href="https://huggingface.co/spaces/nelbarman053/Scientific-Paper-Keyword-Categorization">here</a>.</strong>
 <div align="center">
     <img src="readmeFileImages/deployment.png">
+</div>
 
 <h3><code style="color:blue">Integration to website</code></h3>
-<strong>I integrated the model <a href="https://render.com/">render</a>. Check out the live website <a href="https://scientific-paper-keywords-categorization.onrender.com/">here</a>.</strong><br/>
+<strong>I integrated the model using <a href="https://render.com/">render</a>. Check out the live website <a href="https://scientific-paper-keywords-categorization.onrender.com/">here</a>.</strong><br/>
 
 <div align="center">
     <table>
@@ -138,6 +142,12 @@
         </tr>
     </table>
 </div>
+<h3><code style="color:blue">References</code></h3>
+<strong>
+    <ul>
+        <li>Fallah, Haytame, et al. "Adapting transformers for multi-label text classification." CIRCLE (Joint Conference of the Information Retrieval Communities in Europe) 2022. 2022.</li>
+    </ul>
+</strong>
 
 <h3><code style="color:blue">Challenges Faced</code></h3>
 <ul>
@@ -147,6 +157,6 @@
     </li>
     <li><strong>The required webelements distribution in all webpages wasn't the same. For some webpages, the scraper collecting details were working fine but it showed exceptions for those. So, I had to re-write some codes considering the different ones and generalize the codes.</strong></li>
     <li><strong>As I had to collect a lot of data, so, I created same type of scrapers and running them simultaneously from different indexes. It boosted my data collection process a bit although it depended much on internet speed.</strong></li>
-    <li><strong>In the end, it took huge time to collect a desirable amount of data. So, I had to wait with patience.</strong></li>
     <li><strong>Some abstracts contains values like "Retracted.", "Final version", "IEEE Plagarism Policy." and some more unconsiderable values. So, I went through the whole dataset and found these values mannually for the data cleaning process.</strong></li>
+    <li><strong>In the end, it took huge time to collect a desirable amount of data. So, I had to wait with patience.</strong></li>
 </ul>
