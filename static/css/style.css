@@ -6,11 +6,18 @@
     justify-content: center;
     /* background-color: aqua; */
     font-family: 'Roboto Mono', monospace;
+    overflow: hidden;
 }
 
 .grid_container{
     display: grid;
     grid-template-columns: 500px 500px;
+    grid-gap: 50px; 
+}
+
+.grid_container_2{
+    display: grid;
+    grid-template-columns: 570px 570px;
     grid-gap: 50px; 
 }
 
@@ -45,6 +52,21 @@
     font-size: large;
     font-weight: bolder;
     padding: 20px;
+}
+
+.abstract_container{
+    text-align: left;    
+}
+
+.keywords_container{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* vertical-align: middle; */
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .keywords{

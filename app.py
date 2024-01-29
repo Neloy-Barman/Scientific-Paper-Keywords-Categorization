@@ -15,7 +15,7 @@ def index():
         #                 deleniti debitis iusto.
         #             """
         # input_text = "Hello World!!"
-        input_text = request.form['input_text']
+        input_text = request.form['input_text'].replace("\n", "")
 
         
         outputs = categorize_keywords(input_text=input_text)
