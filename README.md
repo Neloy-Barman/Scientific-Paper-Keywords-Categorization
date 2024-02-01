@@ -142,6 +142,12 @@ that results in lower recall values. On the contrary, RoBERTa is more precise an
         </tr>
     </table>
 </div>
+
+
+<h3><code style="color:blue">Short Video Demonstration</code></h3>
+<strong>I prepared a short video demonstration and shared it as a linked in post. Check it out <a href="https://www.linkedin.com/feed/update/urn:li:activity:7158861904692539393/">here</a>.</strong>
+
+
 <h3><code style="color:blue">References</code></h3>
 <strong>
     <ul>
